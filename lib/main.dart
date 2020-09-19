@@ -106,13 +106,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 activeColor: Colors.red,
                 onChanged: (double d){
                   setState(() {
-                    Duration duration = Duration(seconds: d.toInt());
-                    position = duration;
+                    audioPlayer.seek(d);
                   });
-                },
-              onChangeEnd: (double value){
-                changerPosition(value);
-              },
+                }
             )
           ],
         ),
@@ -228,12 +224,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return duree.toString().split('.').first;
   }
 
-  void changerPosition(double pos){
-    setState(() {
-      position = Duration(seconds: pos.toInt());
-      audioPlayer.seek(pos);
-    });
-  }
 }
 
 enum ActionMusic{
