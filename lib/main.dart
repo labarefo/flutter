@@ -110,14 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     position = duration;
                   });
                 },
-              onChangeStart: (double value){
-                print('Started change at $value');
-                setState(() {
-                  audioPlayer.pause();
-                });
-              },
               onChangeEnd: (double value){
-                print('Ende change at $value');
                 changerPosition(value);
               },
             )
@@ -236,9 +229,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void changerPosition(double pos){
-    position = Duration(seconds: pos.toInt());
-    audioPlayer.seek(pos);
-    play();
+    setState(() {
+      position = Duration(seconds: pos.toInt());
+      audioPlayer.seek(pos);
+    });
   }
 }
 
