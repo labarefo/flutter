@@ -111,13 +111,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                 },
               onChangeStart: (double value){
-                print('Started change at $value');
                 setState(() {
                   audioPlayer.pause();
                 });
               },
               onChangeEnd: (double value){
-                print('Ende change at $value');
                 changerPosition(value);
               },
             )
